@@ -90,7 +90,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     environment.production
       ? []
       : StoreDevtoolsModule.instrument({
-          name: 'Angular NgRx Material Starter'
+          name: 'Outreach POC'
         }),
 
     // 3rd party
