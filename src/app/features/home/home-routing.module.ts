@@ -7,7 +7,7 @@ const routes: Routes = [
   {
     path: '',
     component: HomeComponent,
-    data: { title: 'anms.menu.home' }
+    data: { title: 'app.menu.home' }
   }
 ];
 
