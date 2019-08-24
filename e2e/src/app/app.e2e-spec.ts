@@ -7,9 +7,9 @@ describe('App', () => {
 
   beforeEach(() => (page = new AppPage()));
 
-  it('should redirect to "about" route', () => {
+  it('should redirect to "home" route', () => {
     page.navigateTo();
-    expect(getCurrentRouteUrl()).toEqual('about');
+    expect(getCurrentRouteUrl()).toEqual('home');
   });
 
   it('should display current year in the footer', () => {
