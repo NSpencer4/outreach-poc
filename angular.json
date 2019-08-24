@@ -12,7 +12,7 @@
       },
       "root": "",
       "sourceRoot": "src",
-      "prefix": "app",
+      "prefix": "anms",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -28,6 +28,7 @@
               "src/assets"
             ],
             "styles": [
+              "src/styles-app-loading.scss",
               "src/styles.scss"
             ],
             "scripts": []
@@ -51,14 +52,25 @@
               "buildOptimizer": true,
               "budgets": [
                 {
-                  "type": "initial",
-                  "maximumWarning": "2mb",
-                  "maximumError": "5mb"
+                  "type": "bundle",
+                  "name": "polyfills",
+                  "baseline": "150kb",
+                  "maximumWarning": "50kb",
+                  "maximumError": "100kb"
                 },
                 {
-                  "type": "anyComponentStyle",
-                  "maximumWarning": "6kb",
-                  "maximumError": "10kb"
+                  "type": "bundle",
+                  "name": "styles",
+                  "baseline": "280kb",
+                  "maximumWarning": "50kb",
+                  "maximumError": "100kb"
+                },
+                {
+                  "type": "bundle",
+                  "name": "main",
+                  "baseline": "1024kb",
+                  "maximumWarning": "100kb",
+                  "maximumError": "200kb"
                 }
               ]
             }
@@ -93,9 +105,20 @@
               "src/assets"
             ],
             "styles": [
+              "src/styles-app-loading.scss",
               "src/styles.scss"
             ],
             "scripts": []
+          },
+          "configurations": {
+            "test": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.test.ts"
+                }
+              ]
+            }
           }
         },
         "lint": {
@@ -124,6 +147,7 @@
           }
         }
       }
-    }},
+    }
+  },
   "defaultProject": "outreach-poc"
 }
